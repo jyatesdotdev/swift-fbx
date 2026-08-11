@@ -64,7 +64,7 @@ Add via URL from another package:
 let package = Package(
     // ...
     dependencies: [
-        .package(url: "https://github.com/jyatesdotdev/swift-fbx.git", from: "0.1.0"),
+        .package(url: "https://github.com/jyatesdotdev/swift-fbx.git", from: "0.1.1"),
     ],
     targets: [
         .target(
