@@ -1,5 +1,9 @@
 # swift-fbx
 
+[![Swift Version](https://img.shields.io/badge/Swift-6.0%2B-orange.svg)](https://swift.org/)
+[![Swift Package Index (Swift)](https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/jyatesdotdev/swift-fbx/badge?type=swift-versions)](https://swiftpackageindex.com/jyatesdotdev/swift-fbx)
+[![Swift Package Index (Platforms)](https://img.shields.io/endpoint?url=https://swiftpackageindex.com/api/packages/jyatesdotdev/swift-fbx/badge?type=platforms)](https://swiftpackageindex.com/jyatesdotdev/swift-fbx)
+
 A pure-Swift FBX file parser, ported from [ufbx](https://github.com/ufbx/ufbx).
 
 - Binary FBX 7100–7700 (including 64-bit and big-endian variants) and ASCII FBX 6100–7700
@@ -79,6 +83,13 @@ let package = Package(
 
 In Xcode, choose **File > Add Package Dependencies** and paste the repository URL,
 then link the `SwiftFBX` library product to the target that imports it.
+
+## Swift Package Index
+
+This package can be indexed and discovered on the Swift Package Index:
+
+- Package page: https://swiftpackageindex.com/jyatesdotdev/swift-fbx
+- SPI accepts package source directly from the repository URL, so publishing is done centrally on their site.
 
 ## Development
 
