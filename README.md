@@ -56,16 +56,15 @@ let scene = try FBXScene.load(contentsOf: fileURL, options: options)
 materialized. `FBXDocument.parse(data:)` applies the same source and decoded
 array limits to in-memory input.
 
-### Add as a local Swift package
+### Add as a Swift package
 
-Until this repository has a published URL and version, another Swift package
-can depend on a local checkout by adding it to `Package.swift`:
+Add via URL from another package:
 
 ```swift
 let package = Package(
     // ...
     dependencies: [
-        .package(path: "../swift-fbx"),
+        .package(url: "https://github.com/jyatesdotdev/swift-fbx.git", from: "0.1.0"),
     ],
     targets: [
         .target(
@@ -78,9 +77,8 @@ let package = Package(
 )
 ```
 
-In Xcode, choose **File > Add Package Dependencies**, select **Add Local**, then
-choose this repository and link the `SwiftFBX` library product to the target
-that imports it.
+In Xcode, choose **File > Add Package Dependencies** and paste the repository URL,
+then link the `SwiftFBX` library product to the target that imports it.
 
 ## Development
 
