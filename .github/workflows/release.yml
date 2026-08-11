@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to (re)build and upload artifacts for
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    name: Build and publish release assets
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve release tag
+        id: tag
+        shell: bash
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "release" ]]; then
+            TAG="${{ github.event.release.tag_name }}"
+          else
+            TAG="${{ inputs.tag }}"
+          fi
+
+          if [[ -z "${TAG}" ]]; then
+            echo "Tag is required when triggering this workflow manually." >&2
+            exit 1
+          fi
+
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+
+      - name: Build library in release mode
+        run: swift build -c release
+
+      - name: Build CLI tool in release mode
+        run: swift build -c release --product fbx-dump
+
+      - name: Build and run tests
+        run: swift test
+
+      - name: Package CLI artifact
+        run: |
+          mkdir -p dist
+          cp .build/release/fbx-dump dist/fbx-dump
+          chmod +x dist/fbx-dump
+          tar -czf "dist/fbx-dump-${{ steps.tag.outputs.tag }}-macos.tar.gz" -C dist fbx-dump
+
+      - name: Upload release artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "${{ steps.tag.outputs.tag }}" "dist/fbx-dump-${{ steps.tag.outputs.tag }}-macos.tar.gz" --clobber
