@@ -1,0 +1,50 @@
+[
+ {
+  "name": "empty",
+  "compressed_size": 8,
+  "raw_size": 0,
+  "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ {
+  "name": "hello",
+  "compressed_size": 19,
+  "raw_size": 11,
+  "raw_sha256": "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
+ },
+ {
+  "name": "stored",
+  "compressed_size": 1035,
+  "raw_size": 1024,
+  "raw_sha256": "785b0751fc2c53dc14a4ce3d800e69ef9ce1009eb327ccf458afe09c242c26c9"
+ },
+ {
+  "name": "fixed_huffman",
+  "compressed_size": 13,
+  "raw_size": 36,
+  "raw_sha256": "7fec9f12d0682abad5858d5a59592280fc2b6c8d70010e219728e84fe7c6138b"
+ },
+ {
+  "name": "dynamic_huffman",
+  "compressed_size": 96,
+  "raw_size": 9000,
+  "raw_sha256": "e8d2d9bd40420ea778ca3da0590877596046ec721b904fa9c11e31b6144c1d25"
+ },
+ {
+  "name": "incompressible",
+  "compressed_size": 65552,
+  "raw_size": 65536,
+  "raw_sha256": "911f59197a267bd2ebc9317142697070b734fc0f490d51a437e3a98eb91cff78"
+ },
+ {
+  "name": "mixed_blocks",
+  "compressed_size": 5207,
+  "raw_size": 24000,
+  "raw_sha256": "3a286ca7c954b0778f049f4bca7fcb410430f28b3fbcdd49a42f0ce286cf3075"
+ },
+ {
+  "name": "double_array",
+  "compressed_size": 7744,
+  "raw_size": 32768,
+  "raw_sha256": "11775826808ab02616c3f86c281c87da6dfbdebfce7a55bdcc6950971eb83a26"
+ }
+]
